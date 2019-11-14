@@ -1,0 +1,25 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Extends_block</title>#}
+{#</head>#}
+{#<body>#}
+{#    <div>#}
+{#        <p>#}
+{#            用户名:<input name="username">#}
+{##}
+{#        </p>#}
+{#        <p>#}
+{#            密码:<input name="password">#}
+{#        </p>#}
+{#        <img src="{{ avater | default ('https://profile.csdnimg.cn/D/C/D/1_chenbingjy') }}" alt="">#}
+{#        <br>#}
+{#        books:{{ books | length(books) }}#}
+{#    </div>#}
+{#</body>#}
+{#</html>#}
+{% extends "base.html" %}
+{% block title %}
+    <title> CC_WebUI自动化测试平台 </title>
+{% endblock %}

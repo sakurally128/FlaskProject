@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>CC_WebUI自动化测试平台</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
+    {% block title %}
+    {% endblock %}
+        <style>
+            .nav{
+                background: cornflowerblue;
+                height:22px;
+
+
+            }
+            ul{
+                overflow: hidden;
+                text-align: center;
+            }
+          ul li{
+              float: left;
+              list-style: none;
+              padding: 0 5px;
+              line-height: 20px;
+              color: white;
+          }
+            ul li a{
+                color: #ffffff;
+            }
+        </style>
+    {% block style %}
+
+    {% endblock %}
+
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">登陆</a>
+            </li>
+            <li>
+                <a href="#">退出</a>
+            </li>
+        </ul>
+    </div>
+{% block main %}{% endblock %}
+{#    <a href="{{ url_for('login') }}">login</a>#}
+{#    <img src="{{ url_for('static',filename='images/3.jpg') }}" alt="头像">#}
+</body>
+</html>
