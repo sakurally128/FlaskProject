@@ -1,24 +1,12 @@
 from flask import Flask,render_template
-from flask_sqlalchemy import SQLAlchemy
+from models import User,Article,user_article
+from exts import db
 import settings
 app = Flask(__name__)
 app.config.from_object(settings)
-db = SQLAlchemy(app)
-
-class User(db.Model):
-    __tablename__ = 'user'
-    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
-    username = db.Column(db.String(100),nullable=False)
-class Article(db.Model):
-    __tablename__ = 'article'
-    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
-    title = db.Column(db.String(100),nullable=False)
-    content = db.Column(db.Text,nullable=False)
-    author_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-    articles = db.relationship('User',backref = db.backref('articles'))
-
-
-db.create_all()
+# db = SQLAlchemy(app)
+db.init_app(app)
+# db.create_all()
 @app.route('/login/')
 def login():
     #增加
@@ -33,8 +21,6 @@ def login():
     #查询
     # result = Article.query.filter(Article.title == u'白狐').first()
     # print(result.id,result.title,result.content)
-
-
 
     return render_template('login.html')
 if __name__ == '__main__':
